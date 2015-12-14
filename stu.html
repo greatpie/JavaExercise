@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+ 
+
+
+
+ 
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>武汉大学教务部</title>
+
+<link  id="sex" href="" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="../js/jwbIndex.js"></script>
+<script type="text/javascript" src="../js/jquery.tools.min.js"></script>
+<script type="text/javascript" src="../js/CheckCookie.js?v=2.002"></script>
+<link href="../css/style_common.css?v=2.002?v=2.002" type="text/css" rel="stylesheet"/>
+
+
+	<link id="backcss" href="../css/style_boy.css?v=2.002" type="text/css" rel="stylesheet"/>
+
+<script type="text/javascript" src="../js/table.js?v=2.002"></script>
+<script type="text/javascript"> 
+// perform JavaScript after the document is scriptable.
+$(function() {
+	$("#overLayFrame").load(IFrameResize2);
+	$("#nameLable").mouseover(function(){
+			showDownOrHideUp("#downlistWrapper");
+	});
+	$("#downlistWrapper").mouseleave(function(){
+			showDownOrHideUp("#downlistWrapper");
+		});
+    // setup ul.tabs to work as tabs for each div directly under div.panes
+	var triggers = $(".overlay").overlay({
+	  target:$("#prompt",window.parent.parent.document),
+	  fixed:false,
+	  top:'10',
+	  left:'0px',
+	  closeOnClick:true,
+	  onBeforeLoad:function(){
+	  		var actionStr = this.getTrigger().attr("rel");
+		 	var wrap = this.getOverlay().find("iframe[name=overLayFrame]");
+		 	wrap.width(830);
+		 	wrap.height(300);
+		 	parent.parent.startExpose();
+		 	if(actionStr=="help"){
+		 		wrap.attr("src","../common/help.html"); 
+		 		parent.parent.document.body.parentNode.style.overflow="scroll"; 
+		 	}else if(actionStr=="resetPsd")
+		 		wrap.attr("src","../common/changePassword.jsp"); 
+		 	
+		 	var length = 1280;
+		 	var leftPosition = (length-830)/2;
+		 	this.getOverlay().css("left",leftPosition);
+	  },
+	  onBeforeClose:function(){parent.parent.closeExpose();},
+	  onClose:function(){
+	  	this.getOverlay().find("iframe[name=overLayFrame]").attr("src","");}
+  });
+});
+</script>
+ 
+
+	
+
+
+ <style>
+    .modal {
+   	background-color:#F5F5F5;
+    display:none;
+    padding:15px;
+    text-align:left;
+    border:2px solid #E0E0E0;
+    border-radius:6px;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    box-shadow:0 0 5px #ccc;
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+  }
+
+  .modal h2 {
+    background:url(/media/img/global/info.png) 0 50% no-repeat;
+    margin:0px;
+    padding:10px 0 10px 45px;
+    border-bottom:1px solid #333;
+    font-size:20px;
+  }
+    /* tooltip styling */
+  #downlistWrapper{
+	    /*background:url(/images/white_arrow_small3.png);*/
+	    display:none;
+	    cursor:pointer;
+	    float:right;
+	    font-size:11px;
+	    color:#fff;
+	    text-align: center;
+	    margin-top:-40px;
+	    padding-top: 20px;
+	   	overflow: hidden;
+   }
+  .downlistMenu {
+		background-color:#FFF;
+		padding:10px 10px 20px 5px;
+		height:70px;
+	    width:99px;
+		border:1px solid;
+	    border-bottom-left-radius:3px;
+	    border-bottom-right-radius:3px;
+  }
+  .downlistMenu table{
+  	margin:0;
+  	width: 100%;
+  }
+  .downlistMenu table td{
+  	padding-bottom: 10px;
+  }
+  .downlistMenu a{
+  	font-size: 13px;
+  	font-weight: bold;
+  }
+  </style>
+</head>
+<body  class="greyBg">
+
+ 
+<div id="container" style="background-color: #6B91B6;">
+<div id="top">
+        	<div id="school" onclick="showPage('/servlet/Svlt_QueryStuLsn?action=queryStuLsn','calendarRight.jsp',this)"></div>
+        	<div id="system" onclick="showPage('/servlet/Svlt_QueryStuLsn?action=queryStuLsn','calendarRight.jsp',this)"></div> 
+        	
+            <div id="login_info">          
+	            <div id="nameLable">
+	            	刘佳派
+	            	<img  src="../images/login_info_arrow.png"/>
+	            </div>
+	            <!-- tooltip element -->
+				<div id="login_info2"><span id="term"> 2015-2016学年上学期 <span id="showOrHide">第15教学周</span></span><span id="acade"> 信息管理学院</span></div>
+            </div>
+        </div>
+    <div id="main_contaier">
+       <div id="liebiao"></div>
+        <div id="header">
+            <ul id="menu">
+                <li class="current" id="btn1" onclick="showPage('/servlet/Svlt_QueryStuLsn?action=queryStuLsn','calendarRight.jsp',this);"></li>               
+                <li id="btn2" onclick="showPage('chooseLsn_parent.jsp','choose_Publsn_Apply.jsp',this);"></li>
+				<li id="btn3" onclick="showPage('stu_score_parent.jsp','stu_score_credit_statics.jsp',this);"></li>
+                <li id="btn4" onclick="showPage('stu_jxpg_parent.jsp','calendarRight.jsp',this);"></li>
+           		<li id="btn5" onclick="showPage('stu_creditFee_parent.jsp','calendarRight.jsp',this);"></li> 
+           <!-- <li id="btn6" onclick="showPage('../common/query_train_scheme.jsp','calendarRight.jsp',this);"></li> -->
+            </ul>
+            <div id="downlistWrapper">
+		        <div class="downlistMenu">
+						  <table>
+						  <tr>
+						      <td>
+						      	 <div class="menu_item_help" style="float:left;margin-left:8px"></div>
+							     <div style="float:left;margin-left:3px;"><a class="overlay" rel="help" href="">帮助</a></div>
+						      </td>
+						    </tr>
+						    <tr>
+						      <td>
+						      	 <div class="menu_item_resetpwd" style="float:left;margin-left:8px"></div>
+							     <div style="float:left;margin-left:3px;"><a class="overlay" rel="resetPsd" href="">修改密码</a></div>
+						      </td>
+						    </tr>
+						    <tr>
+						      <td>
+							      <div class="menu_item_logout" style="float:left;margin-left:8px"></div>
+						      	<div style="float:left;margin-left:3px;"><a href="/servlet/logout">退出系统</a></div>
+		
+							      
+						      </td>
+						    </tr>
+						  </table>
+				</div>
+			</div>
+            <div class="clear"></div>				
+        </div>
+              
+       <script>
+       	 var url="/servlet/Svlt_QueryStuLsn?action=queryStuLsn";
+       	// console.info(url);
+       	 var btn;
+       	
+       	if(url=="/servlet/Svlt_QueryStuLsn?action=queryStuLsn")
+       	 {
+       	 		btn=document.getElementById("btn1");
+       	 }
+       	if(url=="chooseLsn_parent.jsp")	
+       			btn=document.getElementById("btn2");
+       	if(url=='stu_score_parent.jsp')
+       			btn=document.getElementById("btn3");
+       	if(url=='stu_jxpg_parent.jsp')
+       			btn=document.getElementById("btn4");
+       	if(url=='stu_creditFee_parent.jsp')
+       			btn=document.getElementById("btn5");
+       	if(url=='../common/query_train_scheme.jsp')
+       			btn=document.getElementById("btn6");
+       	
+       	
+	$(btn).siblings(".current").removeClass("current");
+	$(btn).addClass("current");
+       </script>
+       
+       <div id="content">
+       		<div id="right_bar" style="float: right;">
+            	<iframe  style="padding:0;" allowTransparency="true" id="bar_iframe" name="bar" src=calendarRight.jsp scrolling ='no' frameborder="0">
+                </iframe>
+            <!--     <iframe  style="padding:0;height:400px;" allowTransparency="true" id="bar_iframe2" name="bar2" src="auto_score_display.jsp" scrolling ='no' frameborder="0">
+               		 </iframe>
+                 -->
+            </div>
+            <div id="left_bar">
+            <!-- /servlet/Svlt_QueryStuLsn -->
+                <iframe style="padding:0;" allowTransparency="true" id="page_iframe" name="main" src=/servlet/Svlt_QueryStuLsn?action=queryStuLsn scrolling ='no' frameborder="0">
+                </iframe>
+                <input type="hidden" id="hidUrl" value=/servlet/Svlt_QueryStuLsn?action=queryStuLsn></input>
+            </div>
+            
+            <script>
+          
+            </script>
+         
+            
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <!-- user input dialog -->
+
+     <div class="modal" id="prompt" style="position:absolute;z-index: 10000;">
+	     <div class="overlayContent" id="overlayContent">
+	    	<iframe name="overLayFrame" id="overLayFrame" frameborder="0" style="width:820px;height: 1020px;border: 0;"></iframe>
+	     </div>
+     </div>
+    <div id="footer" class="stu_footer">
+<!--  <div ><span style="font-size:12px;">联系我们</span> whujwb@163.com</div>-->		
+			<div class="first-part-footer">
+				<div class="first-part">武汉大学</div>
+				<div class="second-part">
+					<p><span>本科生院</span><span class="footer-oper" style="margin-right:14px;">主持</span></p>
+					<p><span>计算机学院、国际软件学院</span><span class="footer-oper" style="margin-right:14px;">研制</span></p>
+					<p><span>网络信息中心</span><span class="footer-oper">平台保障</span></p>
+				</div>
+			</div>
+			<div class="border-right"></div>
+			<div class="second-part-footer">
+				<p>武汉万类软件技术有限公司出品</p>
+				<p>联系我们:whujwb@163.com</p>
+			</div>
+	</div>
+</div>
+
+<script>
+
+/*先不用此控件
+$(function(){
+$(".menu_item_logout").parent("td").mouseover(function(){
+		$(".menu_item_logout").css("background-position","-23px -24px")
+	}).mouseout(function(){
+		$(".menu_item_logout").css("background-position","-23px -3px")
+	})
+$(".menu_item_resetpwd").parent("td").mouseover(function(){
+		$(".menu_item_resetpwd").css("background-position","0 -24px")
+	}).mouseout(function(){
+		$(".menu_item_resetpwd").css("background-position","0 -3px")
+	})
+	
+// initialize tooltip
+$("#nameLable").tooltip({
+	position: "bottom left", 
+   // tweak the position
+   offset: [10, 77],
+   // use the "slide" effect
+   effect: 'slide',
+   relative:true,
+   events: {
+	  def:     "mouseover,mouseleave",    // default show/hide events for an element
+	  tooltip: "mouseenter,mouseleave"     // the tooltip element
+   }
+// add dynamic plugin with optional configuration for bottom edge
+}).dynamic({ bottom: { direction: 'up', bounce: true } });
+});*/
+</script>
+<script type="text/javascript">
+var grade2010 = 2013;
+	if(grade2010>=2010 ){		
+		$("#btn5").css("display","block");
+	}
+	else 
+	$("#btn5").css("display","none");
+//周期
+	var week=15;
+	if(week>=20){
+		$("#showOrHide").css("display","none");
+	}
+</script>
+</body>
+</html>
+
